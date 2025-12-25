@@ -10,10 +10,10 @@ As a Computer Science student at **TU Delft**, I built these tools to gain a con
 | Project | Type | Key Technical Concepts |
 | :--- | :--- | :--- |
 | **[TinyShell](./shell)** | **Independent Project** | Linux syscalls (`fork`, `execve`), process isolation, manual string tokenization. |
-| **[Branch Predictor](./branch-predictor)** | Architecture Simulation | Simulating CPU pipeline behavior and implementing prediction logic to minimize stalls. |
-| **[Printf Implementation](./printf-mini)** | Standard Library | Manually handling the **System V AMD64 ABI**, stack frame management, and variadic argument parsing. |
-| **[Diff Tool](./diff-mini)** | Algorithms | File comparison algorithm optimized for minimal register usage and efficient memory access. |
-| **[Hash Function](./hash-mini)** | Cryptography | Implementation of hashing logic at the instruction level, focusing on bitwise operations. |
+| **[Branch Predictor](./branch-predictor)** | Architecture Simulation | Simulating CPU pipeline behavior with a 2-bit saturating counter logic. |
+| **[Printf Implementation](./printf)** | Standard Library | Manually handling the **System V AMD64 ABI**, stack frame management, and variadic argument parsing. |
+| **[Diff Tool](./diff)** | Algorithms | Line-by-line text comparison algorithm optimized for minimal register usage. |
+| **[SHA-1 Hash](./hash-function)** | Cryptography | Implementation of the SHA-1 compression function and message schedule at the instruction level. |
 
 ## Why Assembly?
 In an era of high-level frameworks, writing Assembly provides a competitive advantage by revealing the cost of abstractions.
