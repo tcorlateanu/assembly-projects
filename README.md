@@ -1,25 +1,40 @@
-# x86-64 Assembly Systems Portfolio
+# FoodPal: Distributed Recipe Management Suite
 
 ## Overview
-This repository contains a collection of low-level systems projects written in **x86-64 Assembly**, focusing on memory management, processor architecture, and direct Operating System interaction.
+This system was developed as a core project within the **Computer Science & Engineering** curriculum at **Delft University of Technology (TU Delft)**.
 
-As a Computer Science student at **TU Delft**, I built these tools to gain a concrete understanding of how software interacts with hardware. While some projects explore concepts from the *CSE1400 Computer Organisation* course, the **Shell** implementation is an independent project built to understand process creation and management at the kernel level.
+Developed by **CSEP Team 36** during the **2025–2026** cycle, its core objective is to provide a **scalable, distributed organizer** for recipe and ingredient management.
 
-## Project Highlights
+## Project Context
 
-| Project | Type | Key Technical Concepts |
-| :--- | :--- | :--- |
-| **[TinyShell](./shell)** | **Independent Project** | Linux syscalls (`fork`, `execve`), process isolation, manual string tokenization. |
-| **[Branch Predictor](./branch-predictor)** | Architecture Simulation | Simulating CPU pipeline behavior with a 2-bit saturating counter logic. |
-| **[Printf Implementation](./printf)** | Standard Library | Manually handling the **System V AMD64 ABI**, stack frame management, and variadic argument parsing. |
-| **[Diff Tool](./diff)** | Algorithms | Line-by-line text comparison algorithm optimized for minimal register usage. |
-| **[SHA-1 Hash](./hash-function)** | Cryptography | Implementation of the SHA-1 compression function and message schedule at the instruction level. |
+*   **Academic Institution:** Delft University of Technology (TU Delft)
+*   **Project Group:** CSEP Team 36
+*   **Development Cycle:** 2025–2026
+*   **Core Objective:** Engineering a scalable, distributed organizer for recipe and ingredient management
 
-## Why Assembly?
-In an era of high-level frameworks, writing Assembly provides a competitive advantage by revealing the cost of abstractions.
-*   **Memory Awareness:** Understanding stack frames and heap allocation helps me write optimized Java/C++ code.
-*   **Debugging:** Experience with registers and instruction pointers makes debugging complex segmentation faults or JVM crashes significantly easier.
-*   **Systems Design:** Implementing core tools from scratch (like a shell or printf) clarifies how Operating Systems actually function "under the hood."
+## System Architecture
+The application is built on a client–server model that prioritizes a client-agnostic backend. This design keeps global data centralized, while user-specific configuration is handled on the client side.
 
----
-*Author: Teodora Corlateanu - TU Delft Computer Science and Engineering Student*
+*   **Stateless Backend:** The server manages global CRUD operations (Create, Read, Update, Delete) for recipes without storing session-specific client state.
+*   **Automated Data Transformation:** Integrated **Jackson** for JSON-to-object mapping, enabling seamless RESTful communication.
+*   **Distributed Synchronization:** **Spring Boot** + **JavaFX** architecture supports real-time data sharing across multiple concurrent clients.
+*   **Local Persistence:** Client-specific data (favorite recipes, server configuration, etc.) is stored in a local persistent JSON format.
+*   **Dynamic Mutation Logic:** Deep-copy cloning allows users to fork existing recipes without affecting the integrity of the central data store.
+
+## Technical Specifications
+
+*   **Languages:** Java (Advanced), SQL (PostgreSQL)
+*   **Frameworks:** Spring Boot (Backend), JavaFX (Frontend)
+*   **Build System:** Maven (multi-module: client, server, commons)
+*   **Data Interchange:** RESTful APIs using JSON serialization
+*   **Code Quality:** Enforced via Checkstyle to maintain strict complexity and documentation standards
+
+## Execution Instructions
+The project uses the Maven Wrapper to ensure a consistent execution environment.
+
+**Initialize Server:**
+mvn -pl server -am spring-boot:run
+**Initialize Client:**
+mvn -pl client -am javafx:run
+```bash
+mvn -pl server -am spring-boot:run
